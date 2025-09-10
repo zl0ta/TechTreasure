@@ -58,7 +58,8 @@ export default function Products() {
       limit: itemsPerPage,
       sort: sortBy,
       minPrice: priceRange[0],
-      maxPrice: priceRange[1]
+      maxPrice: priceRange[1],
+      brands: selectedBrands
     }],
     queryFn: async () => {
       const params = new URLSearchParams({
@@ -72,6 +73,7 @@ export default function Products() {
       
       if (selectedCategory) params.append('category', selectedCategory);
       if (searchQuery) params.append('search', searchQuery);
+      if (selectedBrands.length > 0) params.append('brands', selectedBrands.join(','));
       
       const response = await fetch(`/api/products?${params}`);
       if (!response.ok) {

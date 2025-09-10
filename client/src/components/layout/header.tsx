@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Search, ShoppingCart, User, Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,11 +26,38 @@ export function Header({ onCartClick, onWishlistClick }: HeaderProps) {
   const { user, isAuthenticated, logout } = useAuth();
   const { totalItems } = useCart();
 
+  // Load wishlist count from localStorage
+  useEffect(() => {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    setWishlistItems(wishlist);
+    
+    // Listen for storage changes to update wishlist count in real time
+    const handleStorageChange = () => {
+      const updatedWishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      setWishlistItems(updatedWishlist);
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Also listen for custom events within the same tab
+    const handleWishlistUpdate = () => {
+      const updatedWishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      setWishlistItems(updatedWishlist);
+    };
+    
+    window.addEventListener('wishlistUpdated', handleWishlistUpdate);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('wishlistUpdated', handleWishlistUpdate);
+    };
+  }, []);
+
   const handleWishlistClick = () => {
     if (onWishlistClick) {
       onWishlistClick();
     } else {
-      // Default behavior - navigate to wishlist page or show modal
+      // Default behavior - navigate to wishlist page
       navigate('/wishlist');
     }
   };

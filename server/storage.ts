@@ -13,7 +13,7 @@ export interface IStorage {
   updateUser(id: string, user: Partial<InsertUser>): Promise<User | undefined>;
   
   // Products
-  getProducts(filters?: { category?: string; search?: string; page?: number; limit?: number }): Promise<{ products: Product[]; total: number }>;
+  getProducts(filters?: { category?: string; search?: string; page?: number; limit?: number; sort?: string; minPrice?: number; maxPrice?: number; brands?: string[] }): Promise<{ products: Product[]; total: number }>;
   getProduct(id: string): Promise<Product | undefined>;
   createProduct(product: InsertProduct): Promise<Product>;
   updateProduct(id: string, product: Partial<InsertProduct>): Promise<Product | undefined>;
@@ -33,7 +33,7 @@ export interface IStorage {
   clearCart(userId: string): Promise<void>;
   
   // Blog
-  getBlogPosts(page?: number, limit?: number): Promise<{ posts: BlogPost[]; total: number }>;
+  getBlogPosts(page?: number, limit?: number, search?: string): Promise<{ posts: BlogPost[]; total: number }>;
   getBlogPost(id: string): Promise<BlogPost | undefined>;
   createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
 }
@@ -124,14 +124,16 @@ export class FileStorage implements IStorage {
   }
 
   // Products
-  async getProducts(filters?: { category?: string; search?: string; page?: number; limit?: number }): Promise<{ products: Product[]; total: number }> {
+  async getProducts(filters?: { category?: string; search?: string; page?: number; limit?: number; sort?: string; minPrice?: number; maxPrice?: number; brands?: string[] }): Promise<{ products: Product[]; total: number }> {
     const products = await this.readJsonFile<Product>('products.json', []);
     let filteredProducts = products;
 
+    // Filter by category
     if (filters?.category) {
       filteredProducts = filteredProducts.filter(p => p.category.toLowerCase() === filters.category!.toLowerCase());
     }
 
+    // Filter by search term
     if (filters?.search) {
       const searchTerm = filters.search.toLowerCase();
       filteredProducts = filteredProducts.filter(p => 
@@ -141,8 +143,40 @@ export class FileStorage implements IStorage {
       );
     }
 
+    // Filter by price range
+    if (filters?.minPrice !== undefined) {
+      filteredProducts = filteredProducts.filter(p => p.price >= filters.minPrice!);
+    }
+    if (filters?.maxPrice !== undefined) {
+      filteredProducts = filteredProducts.filter(p => p.price <= filters.maxPrice!);
+    }
+
+    // Filter by brands
+    if (filters?.brands && filters.brands.length > 0) {
+      filteredProducts = filteredProducts.filter(p => 
+        filters.brands!.some(brand => p.brand?.toLowerCase() === brand.toLowerCase())
+      );
+    }
+
+    // Sort products
+    if (filters?.sort) {
+      switch (filters.sort) {
+        case 'price-low':
+          filteredProducts.sort((a, b) => a.price - b.price);
+          break;
+        case 'price-high':
+          filteredProducts.sort((a, b) => b.price - a.price);
+          break;
+        case 'name':
+        default:
+          filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+      }
+    }
+
     const total = filteredProducts.length;
     
+    // Apply pagination
     if (filters?.page && filters?.limit) {
       const start = (filters.page - 1) * filters.limit;
       filteredProducts = filteredProducts.slice(start, start + filters.limit);
@@ -283,17 +317,29 @@ export class FileStorage implements IStorage {
   }
 
   // Blog
-  async getBlogPosts(page?: number, limit?: number): Promise<{ posts: BlogPost[]; total: number }> {
+  async getBlogPosts(page?: number, limit?: number, search?: string): Promise<{ posts: BlogPost[]; total: number }> {
     const posts = await this.readJsonFile<BlogPost>('blog.json', []);
-    const total = posts.length;
+    let filteredPosts = posts;
     
-    let paginatedPosts = posts;
-    if (page && limit) {
-      const start = (page - 1) * limit;
-      paginatedPosts = posts.slice(start, start + limit);
+    // Filter by search term
+    if (search) {
+      const searchTerm = search.toLowerCase();
+      filteredPosts = filteredPosts.filter(p => 
+        p.title.toLowerCase().includes(searchTerm) || 
+        p.content.toLowerCase().includes(searchTerm) ||
+        p.excerpt?.toLowerCase().includes(searchTerm)
+      );
     }
     
-    return { posts: paginatedPosts, total };
+    const total = filteredPosts.length;
+    
+    // Apply pagination
+    if (page && limit) {
+      const start = (page - 1) * limit;
+      filteredPosts = filteredPosts.slice(start, start + limit);
+    }
+    
+    return { posts: filteredPosts, total };
   }
 
   async getBlogPost(id: string): Promise<BlogPost | undefined> {

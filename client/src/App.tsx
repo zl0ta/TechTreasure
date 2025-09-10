@@ -16,6 +16,7 @@ import Blog from "@/pages/blog";
 import BlogDetail from "@/pages/blog-detail";
 import Login from "@/pages/login";
 import Register from "@/pages/register";
+import Wishlist from "@/pages/wishlist";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -29,6 +30,7 @@ function Router() {
         <Route path="/checkout" component={Checkout} />
         <Route path="/profile" component={Profile} />
         <Route path="/orders" component={Profile} />
+        <Route path="/wishlist" component={Wishlist} />
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:id" component={BlogDetail} />
         <Route path="/login" component={Login} />

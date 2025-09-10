@@ -98,13 +98,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Product routes
   app.get('/api/products', async (req, res) => {
     try {
-      const { category, search, page = '1', limit = '12' } = req.query;
+      const { 
+        category, 
+        search, 
+        page = '1', 
+        limit = '12',
+        sort,
+        minPrice,
+        maxPrice,
+        brands
+      } = req.query;
       
       const filters = {
         category: category as string,
         search: search as string,
         page: parseInt(page as string),
         limit: parseInt(limit as string),
+        sort: sort as string,
+        minPrice: minPrice ? parseFloat(minPrice as string) : undefined,
+        maxPrice: maxPrice ? parseFloat(maxPrice as string) : undefined,
+        brands: brands ? (brands as string).split(',') : undefined,
       };
       
       const result = await storage.getProducts(filters);
@@ -264,10 +277,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Blog routes
   app.get('/api/blog', async (req, res) => {
     try {
-      const { page = '1', limit = '10' } = req.query;
+      const { page = '1', limit = '10', search } = req.query;
       const result = await storage.getBlogPosts(
         parseInt(page as string),
-        parseInt(limit as string)
+        parseInt(limit as string),
+        search as string
       );
       res.json(result);
     } catch (error: any) {

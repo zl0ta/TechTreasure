@@ -12,9 +12,18 @@ export default function Blog() {
   const postsPerPage = 9;
 
   const { data: blogData, isLoading } = useQuery<{ posts: BlogPost[]; total: number }>({
-    queryKey: ['/api/blog', { page: currentPage, limit: postsPerPage }],
+    queryKey: ['/api/blog', { page: currentPage, limit: postsPerPage, search: searchQuery }],
     queryFn: async () => {
-      const response = await fetch(`/api/blog?page=${currentPage}&limit=${postsPerPage}`);
+      const params = new URLSearchParams({
+        page: currentPage.toString(),
+        limit: postsPerPage.toString(),
+      });
+      
+      if (searchQuery) {
+        params.append('search', searchQuery);
+      }
+      
+      const response = await fetch(`/api/blog?${params}`);
       if (!response.ok) {
         throw new Error('Failed to fetch blog posts');
       }
@@ -24,7 +33,7 @@ export default function Blog() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement search functionality
+    setCurrentPage(1); // Reset to first page when searching
   };
 
   const totalPages = Math.ceil((blogData?.total || 0) / postsPerPage);

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
 import { useCart } from "@/hooks/use-cart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Product } from "@shared/schema";
 
 interface ProductCardProps {
@@ -16,6 +16,12 @@ export function ProductCard({ product, variant = 'standard' }: ProductCardProps)
   const { addToCart, isAddingToCart } = useCart();
   const [isInWishlist, setIsInWishlist] = useState(false);
 
+  // Check if product is in wishlist on mount
+  useEffect(() => {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    setIsInWishlist(wishlist.includes(product.id));
+  }, [product.id]);
+
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent navigation when clicking add to cart
     e.stopPropagation();
@@ -25,8 +31,25 @@ export function ProductCard({ product, variant = 'standard' }: ProductCardProps)
   const handleWishlistToggle = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsInWishlist(!isInWishlist);
-    // TODO: Add to actual wishlist storage/API
+    
+    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    const newIsInWishlist = !isInWishlist;
+    
+    if (newIsInWishlist) {
+      // Add to wishlist
+      if (!wishlist.includes(product.id)) {
+        wishlist.push(product.id);
+      }
+    } else {
+      // Remove from wishlist
+      const index = wishlist.indexOf(product.id);
+      if (index > -1) {
+        wishlist.splice(index, 1);
+      }
+    }
+    
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    setIsInWishlist(newIsInWishlist);
   };
 
   if (variant === 'large') {

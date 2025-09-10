@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "email": "zlata.ranch91@gmail.com",
+    "password": "$2b$10$Sdh5DW.GlOCJWeBo5a963e/f85tabfSx3AYBRoMFaEQnQwbTus3X6",
+    "firstName": "Zlata",
+    "lastName": "Ranchukova",
+    "id": "3d83bcd5-819c-40fa-b6db-b9e06cb9fae4",
+    "createdAt": "2025-09-10T09:37:26.024Z",
+    "updatedAt": "2025-09-10T09:37:26.024Z"
+  }
+]

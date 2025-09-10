@@ -11,6 +11,7 @@
     ],
     "stock": 15,
     "featured": true,
+    "brand": "Apple",
     "tags": ["laptop", "macbook", "apple", "professional"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -27,6 +28,7 @@
     ],
     "stock": 25,
     "featured": true,
+    "brand": "Apple",
     "tags": ["smartphone", "iphone", "apple", "flagship"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -42,6 +44,7 @@
     ],
     "stock": 40,
     "featured": true,
+    "brand": "Sony",
     "tags": ["headphones", "wireless", "noise-canceling", "premium"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -58,6 +61,7 @@
     ],
     "stock": 8,
     "featured": true,
+    "brand": "Custom",
     "tags": ["gaming-pc", "rtx-4080", "high-performance", "custom-build"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -73,6 +77,7 @@
     ],
     "stock": 20,
     "featured": false,
+    "brand": "Dell",
     "tags": ["laptop", "ultrabook", "business", "portable"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -88,6 +93,7 @@
     ],
     "stock": 30,
     "featured": false,
+    "brand": "Samsung",
     "tags": ["smartphone", "android", "samsung", "s-pen"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -103,6 +109,7 @@
     ],
     "stock": 50,
     "featured": false,
+    "brand": "Apple",
     "tags": ["earbuds", "wireless", "apple", "noise-canceling"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -118,6 +125,7 @@
     ],
     "stock": 12,
     "featured": false,
+    "brand": "MSI",
     "tags": ["laptop", "creator", "rtx-4070", "professional"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -133,6 +141,7 @@
     ],
     "stock": 15,
     "featured": false,
+    "brand": "Custom",
     "tags": ["gaming-pc", "amd", "ryzen", "rtx-4070-ti"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -148,6 +157,7 @@
     ],
     "stock": 25,
     "featured": false,
+    "brand": "Bose",
     "tags": ["headphones", "bose", "noise-canceling", "travel"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -163,6 +173,7 @@
     ],
     "stock": 35,
     "featured": false,
+    "brand": "Google",
     "tags": ["smartphone", "google", "pixel", "ai-photography"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
@@ -178,7 +189,1416 @@
     ],
     "stock": 5,
     "featured": false,
+    "brand": "Custom",
     "tags": ["workstation", "professional", "intel-i9", "rtx-a4000"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-13",
+    "name": "MacBook Air M3",
+    "description": "Ultra-thin laptop with M3 chip, 8GB RAM, 256GB SSD. Perfect for students and everyday computing with incredible battery life.",
+    "price": 1099.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "brand": "Apple",
+    "tags": ["laptop", "ultrabook", "apple", "student"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-14",
+    "name": "ASUS ROG Zephyrus G14",
+    "description": "Gaming laptop with AMD Ryzen 9, RTX 4060, 16GB RAM, 1TB SSD. Compact 14-inch design with exceptional gaming performance.",
+    "price": 1699.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 18,
+    "featured": false,
+    "brand": "ASUS",
+    "tags": ["laptop", "gaming", "ryzen", "portable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-15",
+    "name": "ThinkPad X1 Carbon Gen 11",
+    "description": "Business ultrabook with Intel i7, 16GB RAM, 512GB SSD, 14-inch display. Ultimate productivity laptop with military-grade durability.",
+    "price": 1899.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 22,
+    "featured": false,
+    "brand": "Lenovo",
+    "tags": ["laptop", "business", "thinkpad", "durable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-16",
+    "name": "HP Spectre x360 14",
+    "description": "2-in-1 convertible laptop with Intel i7, 16GB RAM, 1TB SSD. Features 13.5-inch touchscreen and all-day battery life.",
+    "price": 1549.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 16,
+    "featured": false,
+    "brand": "HP",
+    "tags": ["laptop", "2-in-1", "touchscreen", "convertible"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-17",
+    "name": "Surface Laptop 5",
+    "description": "Microsoft's premium laptop with Intel i7, 16GB RAM, 512GB SSD. Features Alcantara keyboard and PixelSense touchscreen.",
+    "price": 1799.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1542393545-10f5cde2c810?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Microsoft",
+    "tags": ["laptop", "surface", "premium", "touchscreen"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-18",
+    "name": "Alienware x14 R2",
+    "description": "Ultra-thin gaming laptop with Intel i7, RTX 4050, 16GB RAM, 512GB SSD. Premium gaming in a surprisingly portable package.",
+    "price": 1999.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 12,
+    "featured": false,
+    "brand": "Dell",
+    "tags": ["laptop", "gaming", "alienware", "thin"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-19",
+    "name": "Razer Blade 15",
+    "description": "Gaming laptop with Intel i7, RTX 4070, 32GB RAM, 1TB SSD. Features 240Hz display and RGB mechanical keyboard.",
+    "price": 2699.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1625842268584-8f3296236761?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 10,
+    "featured": false,
+    "brand": "Razer",
+    "tags": ["laptop", "gaming", "240hz", "rgb"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-20",
+    "name": "LG Gram 17",
+    "description": "Ultra-lightweight 17-inch laptop with Intel i7, 16GB RAM, 1TB SSD. Weighs only 2.98 lbs with exceptional portability.",
+    "price": 1699.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 14,
+    "featured": false,
+    "brand": "LG",
+    "tags": ["laptop", "lightweight", "17-inch", "portable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-21",
+    "name": "ASUS ZenBook Pro 14",
+    "description": "Creator laptop with Intel i9, RTX 4060, 32GB RAM, 1TB SSD. Features OLED touchscreen and ScreenPad Plus.",
+    "price": 2299.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 8,
+    "featured": false,
+    "brand": "ASUS",
+    "tags": ["laptop", "creator", "oled", "screenpad"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-22",
+    "name": "Framework Laptop 13",
+    "description": "Modular laptop with Intel i7, 16GB RAM, 512GB SSD. Fully repairable and upgradeable design with swappable ports.",
+    "price": 1399.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "brand": "Framework",
+    "tags": ["laptop", "modular", "repairable", "sustainable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-23",
+    "name": "Acer Predator Helios 300",
+    "description": "Gaming laptop with Intel i7, RTX 4060, 16GB RAM, 512GB SSD. Features 144Hz display and aggressive gaming aesthetics.",
+    "price": 1399.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Acer",
+    "tags": ["laptop", "gaming", "predator", "144hz"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-24",
+    "name": "Gigabyte AERO 16",
+    "description": "Creator laptop with Intel i7, RTX 4070, 32GB RAM, 1TB SSD. Features 4K OLED display and professional color accuracy.",
+    "price": 2599.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 6,
+    "featured": false,
+    "brand": "Gigabyte",
+    "tags": ["laptop", "creator", "4k", "oled"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-25",
+    "name": "System76 Oryx Pro",
+    "description": "Linux laptop with Intel i7, RTX 4060, 32GB RAM, 1TB SSD. Pre-installed with Pop!_OS for developers and power users.",
+    "price": 1899.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": false,
+    "brand": "System76",
+    "tags": ["laptop", "linux", "developer", "open-source"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-26",
+    "name": "iPhone 14",
+    "description": "Reliable iPhone with A15 Bionic chip, dual camera system, and all-day battery life. Available in 128GB storage.",
+    "price": 699.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 45,
+    "featured": false,
+    "brand": "Apple",
+    "tags": ["smartphone", "iphone", "reliable", "mainstream"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-27",
+    "name": "Samsung Galaxy S23",
+    "description": "Compact flagship with Snapdragon 8 Gen 2, 50MP camera, 8GB RAM, and 256GB storage. Perfect balance of size and performance.",
+    "price": 799.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 35,
+    "featured": false,
+    "brand": "Samsung",
+    "tags": ["smartphone", "android", "compact", "flagship"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-28",
+    "name": "OnePlus 11",
+    "description": "Fast flagship with Snapdragon 8 Gen 2, 50MP Hasselblad camera, 16GB RAM, and 256GB storage. Features 100W fast charging.",
+    "price": 699.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 28,
+    "featured": false,
+    "brand": "OnePlus",
+    "tags": ["smartphone", "android", "fast-charging", "hasselblad"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-29",
+    "name": "Xiaomi 13 Pro",
+    "description": "Photography flagship with Leica cameras, Snapdragon 8 Gen 2, 12GB RAM, and 256GB storage. Professional camera system.",
+    "price": 999.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Xiaomi",
+    "tags": ["smartphone", "android", "leica", "photography"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-30",
+    "name": "Google Pixel 7a",
+    "description": "Mid-range phone with Google's computational photography, Tensor G2 chip, 8GB RAM, and pure Android experience.",
+    "price": 499.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 40,
+    "featured": false,
+    "brand": "Google",
+    "tags": ["smartphone", "pixel", "mid-range", "computational-photography"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-31",
+    "name": "Nothing Phone (2)",
+    "description": "Unique transparent design with Glyph Interface, Snapdragon 8+ Gen 1, 12GB RAM, and distinctive LED notifications.",
+    "price": 599.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "brand": "Nothing",
+    "tags": ["smartphone", "transparent", "unique", "glyph"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-32",
+    "name": "ASUS ROG Phone 7",
+    "description": "Gaming smartphone with Snapdragon 8 Gen 2, 16GB RAM, 6000mAh battery, and AirTrigger controls. Built for mobile gaming.",
+    "price": 899.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": false,
+    "brand": "ASUS",
+    "tags": ["smartphone", "gaming", "6000mah", "airtrigger"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-33",
+    "name": "Sony Xperia 1 V",
+    "description": "Photography phone with 4K 120Hz display, triple camera system, and professional camera controls. Designed for content creators.",
+    "price": 1399.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 18,
+    "featured": false,
+    "brand": "Sony",
+    "tags": ["smartphone", "4k", "photography", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-34",
+    "name": "Motorola Edge 40 Pro",
+    "description": "Premium phone with curved display, Snapdragon 8 Gen 2, 12GB RAM, and 50MP camera system with excellent design.",
+    "price": 699.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 22,
+    "featured": false,
+    "brand": "Motorola",
+    "tags": ["smartphone", "curved", "premium", "design"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-35",
+    "name": "Fairphone 5",
+    "description": "Sustainable smartphone with modular design, 5 years warranty, ethically sourced materials, and 8GB RAM, 256GB storage.",
+    "price": 699.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "brand": "Fairphone",
+    "tags": ["smartphone", "sustainable", "modular", "ethical"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-36",
+    "name": "iPhone SE (3rd Gen)",
+    "description": "Compact iPhone with A15 Bionic chip, Touch ID, and classic design. Perfect for users who prefer smaller phones.",
+    "price": 429.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 50,
+    "featured": false,
+    "brand": "Apple",
+    "tags": ["smartphone", "compact", "touch-id", "affordable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-37",
+    "name": "Realme GT 3",
+    "description": "Fast charging phone with 240W charging, Snapdragon 8+ Gen 1, 16GB RAM, and gaming-focused features at great value.",
+    "price": 649.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 35,
+    "featured": false,
+    "brand": "Realme",
+    "tags": ["smartphone", "240w-charging", "gaming", "value"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-38",
+    "name": "Sony WH-1000XM4",
+    "description": "Previous generation Sony flagship headphones with excellent noise canceling, 30-hour battery, and proven sound quality.",
+    "price": 349.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 45,
+    "featured": false,
+    "brand": "Sony",
+    "tags": ["headphones", "noise-canceling", "proven", "value"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-39",
+    "name": "Bose 700 Headphones",
+    "description": "Premium noise-canceling headphones with conversation mode, touch controls, and exceptional call quality.",
+    "price": 379.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "brand": "Bose",
+    "tags": ["headphones", "noise-canceling", "touch-controls", "calls"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-40",
+    "name": "Sennheiser HD 660S2",
+    "description": "Open-back audiophile headphones with neutral sound signature, detachable cable, and professional audio quality.",
+    "price": 599.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Sennheiser",
+    "tags": ["headphones", "open-back", "audiophile", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-41",
+    "name": "Audio-Technica ATH-M50xBT2",
+    "description": "Wireless version of the popular M50x studio headphones with 50-hour battery and professional monitoring sound.",
+    "price": 199.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 40,
+    "featured": false,
+    "brand": "Audio-Technica",
+    "tags": ["headphones", "studio", "50-hour", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-42",
+    "name": "Focal Bathys",
+    "description": "High-end wireless headphones with planar magnetic drivers, premium build quality, and audiophile-grade sound.",
+    "price": 799.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 12,
+    "featured": false,
+    "brand": "Focal",
+    "tags": ["headphones", "planar-magnetic", "high-end", "audiophile"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-43",
+    "name": "Beyerdynamic DT 770 Pro",
+    "description": "Closed-back studio headphones with 80 ohm impedance, excellent isolation, and detailed sound reproduction.",
+    "price": 179.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 35,
+    "featured": false,
+    "brand": "Beyerdynamic",
+    "tags": ["headphones", "studio", "closed-back", "isolation"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-44",
+    "name": "Grado SR325x",
+    "description": "Open-back headphones with Grado's signature sound, handcrafted in Brooklyn, and dynamic drivers for rich audio.",
+    "price": 295.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "brand": "Grado",
+    "tags": ["headphones", "open-back", "handcrafted", "brooklyn"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-45",
+    "name": "HiFiMan Sundara",
+    "description": "Planar magnetic headphones with detailed sound, wide soundstage, and comfortable fit for extended listening sessions.",
+    "price": 349.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 18,
+    "featured": false,
+    "brand": "HiFiMan",
+    "tags": ["headphones", "planar-magnetic", "detailed", "comfortable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-46",
+    "name": "Beats Studio3 Wireless",
+    "description": "Apple W1 chip headphones with Pure ANC, 22-hour battery, and signature Beats sound profile for bass lovers.",
+    "price": 349.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "brand": "Beats",
+    "tags": ["headphones", "w1-chip", "bass", "22-hour"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-47",
+    "name": "SteelSeries Arctis 7P",
+    "description": "Gaming headset with 2.4GHz wireless, DTS Headphone:X 2.0, and retractable microphone. Perfect for console gaming.",
+    "price": 149.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 40,
+    "featured": false,
+    "brand": "SteelSeries",
+    "tags": ["headphones", "gaming", "wireless", "microphone"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-48",
+    "name": "Sony WF-1000XM4",
+    "description": "Premium true wireless earbuds with industry-leading noise canceling, LDAC support, and 8-hour battery life.",
+    "price": 279.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 35,
+    "featured": false,
+    "brand": "Sony",
+    "tags": ["earbuds", "true-wireless", "ldac", "premium"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-49",
+    "name": "Sennheiser Momentum 4",
+    "description": "Wireless headphones with 60-hour battery, adaptive noise canceling, and Sennheiser's signature sound quality.",
+    "price": 379.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "brand": "Sennheiser",
+    "tags": ["headphones", "60-hour", "adaptive", "signature"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-50",
+    "name": "Gaming PC RTX 4090 Build",
+    "description": "Ultimate gaming PC with RTX 4090, Intel i9-13900K, 64GB DDR5 RAM, and 2TB NVMe SSD. Built for 4K gaming at max settings.",
+    "price": 4999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1587202372583-49330a15584d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 3,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["gaming-pc", "rtx-4090", "ultimate", "4k-gaming"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-51",
+    "name": "Budget Gaming PC RTX 4060",
+    "description": "Entry-level gaming PC with RTX 4060, AMD Ryzen 5 7600, 16GB DDR5 RAM, and 500GB NVMe SSD. Great for 1080p gaming.",
+    "price": 1299.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["gaming-pc", "budget", "1080p", "entry-level"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-52",
+    "name": "Creator Workstation RTX 4080",
+    "description": "Content creation PC with RTX 4080, AMD Ryzen 9 7900X, 32GB DDR5 RAM, and 1TB NVMe SSD. Optimized for video editing.",
+    "price": 3799.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 10,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["workstation", "creator", "video-editing", "ryzen-9"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-53",
+    "name": "Compact Mini-ITX PC",
+    "description": "Small form factor PC with RTX 4070, Intel i5-13600K, 16GB DDR5 RAM, and 1TB NVMe SSD. Perfect for space-conscious setups.",
+    "price": 2199.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1587202372583-49330a15584d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 18,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["mini-itx", "compact", "small-form", "space-saving"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-54",
+    "name": "Office Productivity PC",
+    "description": "Business PC with Intel i5-13400, 16GB DDR4 RAM, 512GB SSD, and integrated graphics. Perfect for office work and productivity.",
+    "price": 799.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["office", "productivity", "business", "integrated-graphics"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-55",
+    "name": "Streaming PC Dual-System",
+    "description": "Dedicated streaming PC with capture cards, Intel i7-13700K, 32GB DDR5 RAM, and multiple outputs for content creators.",
+    "price": 2999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591238371323-5b4c8dcd8f03?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 8,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["streaming", "capture-cards", "dual-system", "content-creation"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-56",
+    "name": "Server Rack Workstation",
+    "description": "Professional server with dual Xeon processors, 128GB ECC RAM, 8TB storage, and redundant power supplies for enterprise use.",
+    "price": 7999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 2,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["server", "enterprise", "dual-xeon", "128gb-ram"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-57",
+    "name": "Silent HTPC Build",
+    "description": "Home theater PC with passive cooling, AMD APU, 8GB RAM, and 1TB SSD. Designed for silent operation in living rooms.",
+    "price": 899.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["htpc", "silent", "passive-cooling", "living-room"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-58",
+    "name": "RGB Gaming Showcase PC",
+    "description": "Show-stopping gaming PC with full RGB lighting, RTX 4070 Ti, custom loop cooling, and tempered glass panels.",
+    "price": 3599.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1587202372583-49330a15584d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 6,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["rgb", "showcase", "custom-loop", "tempered-glass"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-59",
+    "name": "AI Development Workstation",
+    "description": "Machine learning PC with dual RTX 4090, AMD Threadripper, 256GB DDR4 RAM, and 4TB NVMe storage for AI research.",
+    "price": 12999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 1,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["ai", "machine-learning", "dual-4090", "256gb-ram"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-60",
+    "name": "Retro Gaming PC Build",
+    "description": "Nostalgic PC with modern specs in retro case, RTX 4060, Intel i5-13400, and support for both modern and classic games.",
+    "price": 1799.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 12,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["retro", "nostalgic", "classic-games", "modern-specs"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-61",
+    "name": "MacBook Pro 14\" M3",
+    "description": "Professional laptop with M3 chip, 16GB RAM, 512GB SSD, and Liquid Retina XDR display. Perfect for creative professionals.",
+    "price": 1999.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Apple",
+    "tags": ["laptop", "macbook", "m3", "creative"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-62",
+    "name": "ASUS TUF Gaming A15",
+    "description": "Durable gaming laptop with AMD Ryzen 7, RTX 4050, 16GB RAM, and military-grade construction. Built to last.",
+    "price": 1199.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "brand": "ASUS",
+    "tags": ["laptop", "gaming", "tuf", "durable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-63",
+    "name": "Chromebook Plus",
+    "description": "Modern Chromebook with Intel i3, 8GB RAM, 128GB storage, and all-day battery. Perfect for students and web-based work.",
+    "price": 399.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 40,
+    "featured": false,
+    "brand": "Google",
+    "tags": ["laptop", "chromebook", "student", "web-based"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-64",
+    "name": "Surface Book 4",
+    "description": "Detachable laptop with Intel i7, discrete GPU, 32GB RAM, and unique tablet mode. The ultimate 2-in-1 device.",
+    "price": 2699.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1542393545-10f5cde2c810?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 10,
+    "featured": false,
+    "brand": "Microsoft",
+    "tags": ["laptop", "detachable", "2-in-1", "tablet"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-65",
+    "name": "Origin Millennium",
+    "description": "Custom gaming laptop with desktop CPU, RTX 4080, 64GB RAM, and desktop-class performance in portable form.",
+    "price": 3999.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1625842268584-8f3296236761?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 5,
+    "featured": false,
+    "brand": "Origin",
+    "tags": ["laptop", "desktop-cpu", "custom", "powerful"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-66",
+    "name": "Steam Deck OLED",
+    "description": "Handheld gaming PC with OLED display, AMD APU, and access to entire Steam library. Gaming on the go redefined.",
+    "price": 649.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "brand": "Valve",
+    "tags": ["laptop", "handheld", "steam", "oled"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-67",
+    "name": "Vivo X90 Pro",
+    "description": "Photography flagship with Zeiss cameras, MediaTek Dimensity 9200, 12GB RAM, and professional video capabilities.",
+    "price": 899.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 22,
+    "featured": false,
+    "brand": "Vivo",
+    "tags": ["smartphone", "zeiss", "photography", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-68",
+    "name": "Honor Magic5 Pro",
+    "description": "Flagship phone with Snapdragon 8 Gen 2, 50MP periscope camera, 12GB RAM, and 100W fast charging technology.",
+    "price": 1099.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 18,
+    "featured": false,
+    "brand": "Honor",
+    "tags": ["smartphone", "periscope", "100w-charging", "flagship"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-69",
+    "name": "Oppo Find X6 Pro",
+    "description": "Premium phone with Hasselblad cameras, Snapdragon 8 Gen 2, 16GB RAM, and exceptional build quality.",
+    "price": 1199.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": false,
+    "brand": "Oppo",
+    "tags": ["smartphone", "hasselblad", "premium", "build-quality"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-70",
+    "name": "Asus ROG Phone 7 Ultimate",
+    "description": "Ultimate gaming phone with 24GB RAM, AeroActive Cooler, 165Hz display, and gaming accessories included.",
+    "price": 1399.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 8,
+    "featured": false,
+    "brand": "ASUS",
+    "tags": ["smartphone", "24gb-ram", "165hz", "cooler"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-71",
+    "name": "Jabra Elite 85t",
+    "description": "True wireless earbuds with advanced ANC, multipoint Bluetooth, and customizable sound profiles via Jabra app.",
+    "price": 229.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 35,
+    "featured": false,
+    "brand": "Jabra",
+    "tags": ["earbuds", "anc", "multipoint", "customizable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-72",
+    "name": "Audeze LCD-X",
+    "description": "Open-back planar magnetic headphones with reference-quality sound, comfortable fit, and professional studio use.",
+    "price": 1199.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 10,
+    "featured": false,
+    "brand": "Audeze",
+    "tags": ["headphones", "planar-magnetic", "reference", "studio"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-73",
+    "name": "Shure AONIC 50",
+    "description": "Professional wireless headphones with studio-quality drivers, noise canceling, and premium construction.",
+    "price": 399.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Shure",
+    "tags": ["headphones", "studio-quality", "professional", "premium"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-74",
+    "name": "Master & Dynamic MW75",
+    "description": "Luxury wireless headphones with premium materials, superior craftsmanship, and audiophile-grade sound quality.",
+    "price": 599.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": false,
+    "brand": "Master & Dynamic",
+    "tags": ["headphones", "luxury", "premium-materials", "craftsmanship"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-75",
+    "name": "Bang & Olufsen Beoplay H95",
+    "description": "Luxury noise-canceling headphones with premium leather, aluminum construction, and signature B&O sound.",
+    "price": 799.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 12,
+    "featured": false,
+    "brand": "Bang & Olufsen",
+    "tags": ["headphones", "luxury", "leather", "aluminum"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-76",
+    "name": "Data Science Workstation",
+    "description": "Specialized PC for data analysis with Intel Xeon, 128GB ECC RAM, multiple GPUs, and optimized for Python/R workflows.",
+    "price": 8999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 4,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["workstation", "data-science", "xeon", "python"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-77",
+    "name": "Cryptocurrency Mining Rig",
+    "description": "Optimized mining rig with multiple RTX 4070s, efficient power supplies, and cooling systems for crypto mining.",
+    "price": 6999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1587202372583-49330a15584d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 5,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["mining", "cryptocurrency", "multiple-gpus", "efficient"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-78",
+    "name": "CAD Engineering Workstation",
+    "description": "Professional workstation with Quadro RTX A6000, Intel i9, 64GB RAM, optimized for SolidWorks and AutoCAD.",
+    "price": 7499.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 6,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["workstation", "cad", "quadro", "engineering"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-79",
+    "name": "Flight Simulator PC",
+    "description": "Specialized gaming PC for flight simulation with multiple monitors support, HOTAS controls, and realistic cockpit setup.",
+    "price": 4299.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 8,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["flight-simulator", "multi-monitor", "hotas", "cockpit"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-80",
+    "name": "Home NAS Server",
+    "description": "Network-attached storage with RAID support, 8-bay configuration, remote access, and automatic backup features.",
+    "price": 1999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": false,
+    "brand": "Custom",
+    "tags": ["nas", "raid", "8-bay", "backup"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-81",
+    "name": "Asus ROG Strix Scar 17",
+    "description": "High-performance gaming laptop with Intel i9, RTX 4080, 32GB DDR5 RAM, and 300Hz display for competitive gaming.",
+    "price": 3299.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 8,
+    "featured": false,
+    "brand": "ASUS",
+    "tags": ["laptop", "gaming", "300hz", "competitive"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-82",
+    "name": "Samsung Galaxy Z Fold5",
+    "description": "Foldable smartphone with large inner display, S Pen support, multitasking capabilities, and flagship specifications.",
+    "price": 1799.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 12,
+    "featured": false,
+    "brand": "Samsung",
+    "tags": ["smartphone", "foldable", "multitasking", "s-pen"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-83",
+    "name": "Apple Studio Display",
+    "description": "27-inch 5K Retina display with P3 wide color, True Tone, and built-in camera for professional workflows.",
+    "price": 1599.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Apple",
+    "tags": ["display", "5k", "retina", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-84",
+    "name": "Logitech MX Master 3S",
+    "description": "Professional wireless mouse with precise tracking, customizable buttons, and multi-device connectivity.",
+    "price": 99.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 50,
+    "featured": false,
+    "brand": "Logitech",
+    "tags": ["mouse", "wireless", "professional", "multi-device"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-85",
+    "name": "Keychron K8 Mechanical Keyboard",
+    "description": "Wireless mechanical keyboard with hot-swappable switches, RGB backlighting, and Mac/Windows compatibility.",
+    "price": 89.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 45,
+    "featured": false,
+    "brand": "Keychron",
+    "tags": ["keyboard", "mechanical", "wireless", "hot-swap"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-86",
+    "name": "Elgato Stream Deck MK.2",
+    "description": "Customizable control deck with 15 LCD keys for streamers, content creators, and productivity workflows.",
+    "price": 149.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "brand": "Elgato",
+    "tags": ["stream-deck", "content-creation", "productivity", "customizable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-87",
+    "name": "Sony A7R V Camera",
+    "description": "Full-frame mirrorless camera with 61MP sensor, 8K video recording, and professional photography features.",
+    "price": 3899.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 10,
+    "featured": false,
+    "brand": "Sony",
+    "tags": ["camera", "mirrorless", "61mp", "8k-video"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-88",
+    "name": "Blue Yeti X USB Microphone",
+    "description": "Professional USB microphone with four-capsule array, real-time LED meter, and broadcast-quality sound.",
+    "price": 169.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 35,
+    "featured": false,
+    "brand": "Blue",
+    "tags": ["microphone", "usb", "broadcast", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-89",
+    "name": "Razer DeathAdder V3 Pro",
+    "description": "Wireless gaming mouse with Focus Pro 30K sensor, 90-hour battery life, and esports-grade performance.",
+    "price": 149.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 40,
+    "featured": false,
+    "brand": "Razer",
+    "tags": ["mouse", "gaming", "wireless", "esports"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-90",
+    "name": "ASUS ProArt Display PA278CV",
+    "description": "27-inch professional monitor with 100% sRGB coverage, factory calibration, and USB-C connectivity.",
+    "price": 329.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "brand": "ASUS",
+    "tags": ["monitor", "professional", "srgb", "usb-c"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-91",
+    "name": "Corsair K95 RGB Platinum XT",
+    "description": "Premium mechanical gaming keyboard with Cherry MX switches, dedicated macro keys, and iCUE RGB lighting.",
+    "price": 199.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "brand": "Corsair",
+    "tags": ["keyboard", "gaming", "mechanical", "rgb"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-92",
+    "name": "Wacom Cintiq Pro 24",
+    "description": "Professional pen display with 4K resolution, color accuracy, and pressure-sensitive stylus for digital artists.",
+    "price": 1999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 8,
+    "featured": false,
+    "brand": "Wacom",
+    "tags": ["pen-display", "4k", "digital-art", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-93",
+    "name": "Shure SM7B Dynamic Microphone",
+    "description": "Legendary broadcast microphone with flat response, electromagnetic shielding, and podcast-quality sound.",
+    "price": 399.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": false,
+    "brand": "Shure",
+    "tags": ["microphone", "broadcast", "podcast", "dynamic"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-94",
+    "name": "LG C3 OLED 65\" TV",
+    "description": "Gaming-focused OLED TV with 4K 120Hz, VRR support, low input lag, and perfect blacks for immersive gaming.",
+    "price": 1799.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 12,
+    "featured": false,
+    "brand": "LG",
+    "tags": ["tv", "oled", "gaming", "4k-120hz"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-95",
+    "name": "Secretlab Titan Evo 2022",
+    "description": "Premium gaming chair with 4-way lumbar support, memory foam, and durable construction for long gaming sessions.",
+    "price": 519.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 18,
+    "featured": false,
+    "brand": "Secretlab",
+    "tags": ["chair", "gaming", "ergonomic", "premium"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-96",
+    "name": "Herman Miller Aeron",
+    "description": "Iconic office chair with advanced ergonomics, breathable mesh, and lifetime warranty for professional use.",
+    "price": 1395.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 10,
+    "featured": false,
+    "brand": "Herman Miller",
+    "tags": ["chair", "office", "ergonomic", "iconic"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-97",
+    "name": "Uplift V2 Standing Desk",
+    "description": "Electric height-adjustable desk with memory presets, cable management, and stable construction for healthy work.",
+    "price": 699.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": false,
+    "brand": "Uplift",
+    "tags": ["desk", "standing", "height-adjustable", "ergonomic"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-98",
+    "name": "Nanoleaf Shapes Hexagons",
+    "description": "Modular LED light panels with smart controls, music sync, and endless design possibilities for gaming setups.",
+    "price": 199.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "brand": "Nanoleaf",
+    "tags": ["lighting", "smart", "modular", "gaming"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-99",
+    "name": "IKEA BEKANT Gaming Desk",
+    "description": "Affordable gaming desk with spacious surface, cable management, and clean design perfect for budget setups.",
+    "price": 129.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 40,
+    "featured": false,
+    "brand": "IKEA",
+    "tags": ["desk", "gaming", "affordable", "budget"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-100",
+    "name": "Philips Hue Play Light Bar",
+    "description": "Smart LED light bars with 16 million colors, sync with games and movies, and voice control compatibility.",
+    "price": 129.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "brand": "Philips",
+    "tags": ["lighting", "smart", "gaming", "voice-control"],
     "createdAt": "2023-12-01T00:00:00.000Z",
     "updatedAt": "2023-12-01T00:00:00.000Z"
   }

@@ -73,9 +73,10 @@ export default function Products() {
   };
 
   const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category);
+    const actualCategory = category === 'all' ? '' : category;
+    setSelectedCategory(actualCategory);
     const params = new URLSearchParams();
-    if (category) params.append('category', category);
+    if (actualCategory) params.append('category', actualCategory);
     if (searchQuery) params.append('search', searchQuery);
     
     navigate(`/products?${params.toString()}`);
@@ -121,12 +122,12 @@ export default function Products() {
           </form>
           
           <div className="flex gap-2">
-            <Select value={selectedCategory} onValueChange={handleCategoryChange}>
+            <Select value={selectedCategory || 'all'} onValueChange={handleCategoryChange}>
               <SelectTrigger className="w-48" data-testid="select-category">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 {categories.map((category) => (
                   <SelectItem key={category.value} value={category.value}>
                     {category.label}

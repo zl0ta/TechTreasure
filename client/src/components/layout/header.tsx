@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, User, Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -15,14 +15,25 @@ import { Badge } from "@/components/ui/badge";
 
 interface HeaderProps {
   onCartClick: () => void;
+  onWishlistClick?: () => void;
 }
 
-export function Header({ onCartClick }: HeaderProps) {
+export function Header({ onCartClick, onWishlistClick }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [wishlistItems, setWishlistItems] = useState<string[]>([]);
   const [location, navigate] = useLocation();
   const { user, isAuthenticated, logout } = useAuth();
   const { totalItems } = useCart();
+
+  const handleWishlistClick = () => {
+    if (onWishlistClick) {
+      onWishlistClick();
+    } else {
+      // Default behavior - navigate to wishlist page or show modal
+      navigate('/wishlist');
+    }
+  };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,7 +83,7 @@ export function Header({ onCartClick }: HeaderProps) {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 ml-12">
             <Link
               href="/"
               className="text-foreground hover:text-primary transition-colors"
@@ -113,6 +124,25 @@ export function Header({ onCartClick }: HeaderProps) {
 
           {/* User Actions */}
           <div className="flex items-center space-x-4">
+            {/* Wishlist */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="relative"
+              onClick={handleWishlistClick}
+              data-testid="button-wishlist"
+            >
+              <Heart className="h-5 w-5" />
+              {wishlistItems.length > 0 && (
+                <Badge
+                  className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 text-xs flex items-center justify-center bg-red-500 text-white"
+                  data-testid="badge-wishlist-count"
+                >
+                  {wishlistItems.length}
+                </Badge>
+              )}
+            </Button>
+            
             {/* Cart */}
             <Button
               variant="ghost"

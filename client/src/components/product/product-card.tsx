@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
 import { useCart } from "@/hooks/use-cart";
+import { useState } from "react";
 import type { Product } from "@shared/schema";
 
 interface ProductCardProps {
@@ -13,10 +14,19 @@ interface ProductCardProps {
 
 export function ProductCard({ product, variant = 'standard' }: ProductCardProps) {
   const { addToCart, isAddingToCart } = useCart();
+  const [isInWishlist, setIsInWishlist] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent navigation when clicking add to cart
+    e.stopPropagation();
     addToCart({ productId: product.id, quantity: 1 });
+  };
+
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsInWishlist(!isInWishlist);
+    // TODO: Add to actual wishlist storage/API
   };
 
   if (variant === 'large') {
@@ -37,8 +47,14 @@ export function ProductCard({ product, variant = 'standard' }: ProductCardProps)
               <Badge variant="secondary" data-testid={`badge-category-${product.id}`}>
                 {product.category}
               </Badge>
-              <Button variant="ghost" size="sm" data-testid={`button-wishlist-${product.id}`}>
-                <Heart className="h-4 w-4" />
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={handleWishlistToggle}
+                className={isInWishlist ? "text-red-500 hover:text-red-600" : ""}
+                data-testid={`button-wishlist-${product.id}`}
+              >
+                <Heart className={`h-4 w-4 ${isInWishlist ? 'fill-current' : ''}`} />
               </Button>
             </div>
             <h3 className="text-xl font-semibold mb-2" data-testid={`text-product-name-${product.id}`}>
@@ -86,8 +102,14 @@ export function ProductCard({ product, variant = 'standard' }: ProductCardProps)
                   <Badge variant="secondary" data-testid={`badge-category-${product.id}`}>
                     {product.category}
                   </Badge>
-                  <Button variant="ghost" size="sm" data-testid={`button-wishlist-${product.id}`}>
-                    <Heart className="h-3 w-3" />
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={handleWishlistToggle}
+                    className={isInWishlist ? "text-red-500 hover:text-red-600" : ""}
+                    data-testid={`button-wishlist-${product.id}`}
+                  >
+                    <Heart className={`h-3 w-3 ${isInWishlist ? 'fill-current' : ''}`} />
                   </Button>
                 </div>
                 <h3 className="font-semibold mb-1" data-testid={`text-product-name-${product.id}`}>
@@ -134,8 +156,14 @@ export function ProductCard({ product, variant = 'standard' }: ProductCardProps)
             <Badge variant="secondary" data-testid={`badge-category-${product.id}`}>
               {product.category}
             </Badge>
-            <Button variant="ghost" size="sm" data-testid={`button-wishlist-${product.id}`}>
-              <Heart className="h-4 w-4" />
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={handleWishlistToggle}
+              className={isInWishlist ? "text-red-500 hover:text-red-600" : ""}
+              data-testid={`button-wishlist-${product.id}`}
+            >
+              <Heart className={`h-4 w-4 ${isInWishlist ? 'fill-current' : ''}`} />
             </Button>
           </div>
           <h3 className="font-semibold mb-2" data-testid={`text-product-name-${product.id}`}>
@@ -151,7 +179,7 @@ export function ProductCard({ product, variant = 'standard' }: ProductCardProps)
               disabled={isAddingToCart}
               data-testid={`button-add-to-cart-${product.id}`}
             >
-              Add
+              <ShoppingCart className="h-4 w-4" />
             </Button>
           </div>
         </CardContent>

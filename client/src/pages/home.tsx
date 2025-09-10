@@ -52,8 +52,13 @@ export default function Home() {
               <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90" data-testid="button-shop-now">
                 <Link href="/products">Shop Now</Link>
               </Button>
-              <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" data-testid="button-learn-more">
-                Learn More
+              <Button 
+                variant="outline" 
+                className="border-primary-foreground/50 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 hover:text-primary-foreground" 
+                data-testid="button-learn-more"
+                asChild
+              >
+                <Link href="/products">Learn More</Link>
               </Button>
             </div>
           </div>
@@ -136,19 +141,47 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12" data-testid="text-categories-title">Shop by Category</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: 'Laptops', icon: 'fas fa-laptop', count: '45+ models', value: 'laptops', color: 'text-primary' },
-              { name: 'Phones', icon: 'fas fa-mobile-alt', count: '30+ models', value: 'phones', color: 'text-accent' },
-              { name: 'Headphones', icon: 'fas fa-headphones', count: '25+ models', value: 'headphones', color: 'text-green-500' },
-              { name: 'PCs', icon: 'fas fa-desktop', count: '20+ builds', value: 'pcs', color: 'text-orange-500' },
+              { 
+                name: 'Laptops', 
+                count: '45+ models', 
+                value: 'laptops', 
+                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300'
+              },
+              { 
+                name: 'Phones', 
+                count: '30+ models', 
+                value: 'phones',
+                image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300'
+              },
+              { 
+                name: 'Headphones', 
+                count: '25+ models', 
+                value: 'headphones',
+                image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300'
+              },
+              { 
+                name: 'PCs', 
+                count: '20+ builds', 
+                value: 'pcs',
+                image: 'https://images.unsplash.com/photo-1587202372583-49330a15584d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300'
+              },
             ].map((category) => (
               <Link key={category.value} href={`/products?category=${category.value}`}>
-                <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer" data-testid={`card-category-${category.value}`}>
-                  <CardContent className="p-6">
-                    <div className={`w-16 h-16 bg-${category.color}/10 rounded-lg flex items-center justify-center mx-auto mb-4`}>
-                      <i className={`${category.icon} ${category.color} text-2xl`}></i>
+                <Card className="group text-center hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden" data-testid={`card-category-${category.value}`}>
+                  <CardContent className="p-0">
+                    <div className="relative h-32 mb-4">
+                      <img
+                        src={category.image}
+                        alt={category.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                     </div>
-                    <h3 className="font-semibold mb-2" data-testid={`text-category-name-${category.value}`}>{category.name}</h3>
-                    <p className="text-sm text-muted-foreground" data-testid={`text-category-count-${category.value}`}>{category.count}</p>
+                    <div className="px-4 pb-4">
+                      <h3 className="font-semibold mb-2" data-testid={`text-category-name-${category.value}`}>{category.name}</h3>
+                      <p className="text-sm text-muted-foreground" data-testid={`text-category-count-${category.value}`}>{category.count}</p>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>

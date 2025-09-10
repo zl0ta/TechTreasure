@@ -110,6 +110,6 @@
 
 @layer components {
   .gradient-hero {
-    @apply bg-gradient-to-br from-primary via-primary/90 to-primary/80;
+    @apply bg-gradient-to-br from-primary via-blue-500 to-blue-600;
   }
 }

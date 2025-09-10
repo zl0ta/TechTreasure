@@ -1,0 +1,64 @@
+Build a complete e-commerce web application using React + TypeScript (with Vite) for the frontend and Node.js + TypeScript (Express) for the backend. Store all data in local JSON files (products.json, users.json, orders.json, blog.json) instead of external databases. The project should be structured and ready to run in Replit for demo purposes.  
+
+### General requirements:
+- Responsive design (desktop, tablet, mobile).
+- Clean and minimalistic UI with some visual diversity (different product card layouts).
+- SEO-friendly with title and meta description for each page.
+- Error handling (404 for missing product, validation errors on forms).
+- Lazy loading of product images and pagination (or infinite scroll).
+- Store password hashes, not plain text.
+- Organized file structure (frontend and backend clearly separated).
+
+---
+
+### Backend (Node + TS with Express):
+1. Serve JSON data (products, users, orders, blog).
+2. Implement authentication: register/login/logout with email + password (hashed).
+3. Provide REST API endpoints:
+   - `/products` (list, filter by category, search by name, pagination).
+   - `/products/:id` (single product).
+   - `/cart` (add/remove/list items in cart per user session).
+   - `/checkout` (create order from cart).
+   - `/orders/:userId` (get user orders).
+   - `/blog` (list of posts).
+   - `/blog/:id` (single blog post).
+   - `/auth/register`, `/auth/login`, `/auth/logout`.
+4. Store and update data in JSON files (simulate DB).
+
+---
+
+### Frontend (React + TS + Vite):
+1. **Pages**:
+   - `/` (homepage with featured products and categories).
+   - `/products` (grid of products with filters, search, pagination, diverse card layouts).
+   - `/products/:id` (single product detail with add to cart).
+   - `/cart` (cart overview with remove/edit quantity).
+   - `/checkout` (confirm and place order).
+   - `/profile` (user data + past orders).
+   - `/blog` (list of posts with previews and “Read More”).
+   - `/blog/:id` (single article).
+   - `/login`, `/register`.
+2. **UI Components**:
+   - Navbar with logo, search bar, categories dropdown, cart icon with item count, profile button.
+   - Footer with contacts and links.
+   - Product cards (some larger with image focus, some compact with text focus, to add visual diversity).
+   - Blog cards with preview text and thumbnail.
+   - Reusable button and form components.
+3. **Features**:
+   - User can register, login, view profile, and see order history.
+   - Cart persists during session.
+   - On checkout, an order is created and stored in orders.json.
+   - Different product card layouts are mixed for variety.
+   - Responsive and visually clean design.
+
+---
+
+### Extras:
+- Minimal styling with CSS/SCSS (no heavy UI frameworks).
+- Ensure lazy loading of product images.
+- Admin mode (basic): ability to add/edit/remove products via API (can be minimal, not full UI).
+- Clear comments in code so it’s easy to understand.
+
+---
+
+Deliver a working project in Replit where I can run the backend server and frontend, navigate between pages, and test the e-commerce flow end to end.

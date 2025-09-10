@@ -1,0 +1,185 @@
+[
+  {
+    "id": "prod-1",
+    "name": "MacBook Pro 16\" M3 Pro",
+    "description": "Powerful laptop with M3 Pro chip, 18GB RAM, and 512GB SSD. Perfect for developers, designers, and content creators with exceptional performance and battery life.",
+    "price": 2499.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": true,
+    "tags": ["laptop", "macbook", "apple", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-2",
+    "name": "iPhone 15 Pro Max",
+    "description": "Latest iPhone with titanium design, advanced camera system, and Action Button. Features 256GB storage, 5G connectivity, and all-day battery life.",
+    "price": 1199.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": true,
+    "tags": ["smartphone", "iphone", "apple", "flagship"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-3",
+    "name": "Sony WH-1000XM5 Headphones",
+    "description": "Premium wireless noise-canceling headphones with industry-leading ANC, 30-hour battery life, and exceptional sound quality.",
+    "price": 399.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 40,
+    "featured": true,
+    "tags": ["headphones", "wireless", "noise-canceling", "premium"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-4",
+    "name": "Gaming PC RTX 4080 Build",
+    "description": "High-performance gaming PC with RTX 4080, Intel i7-13700K, 32GB DDR5 RAM, and 1TB NVMe SSD. Ready for 4K gaming and content creation.",
+    "price": 3299.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1587202372583-49330a15584d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 8,
+    "featured": true,
+    "tags": ["gaming-pc", "rtx-4080", "high-performance", "custom-build"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-5",
+    "name": "Dell XPS 13 Plus",
+    "description": "Ultra-portable laptop with 13th Gen Intel Core i7, 16GB RAM, 512GB SSD, and stunning InfinityEdge display. Perfect for business and productivity.",
+    "price": 1599.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 20,
+    "featured": false,
+    "tags": ["laptop", "ultrabook", "business", "portable"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-6",
+    "name": "Samsung Galaxy S24 Ultra",
+    "description": "Premium Android flagship with S Pen, 200MP camera, 12GB RAM, and 256GB storage. Features AI-powered photography and all-day battery.",
+    "price": 1299.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 30,
+    "featured": false,
+    "tags": ["smartphone", "android", "samsung", "s-pen"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-7",
+    "name": "AirPods Pro (3rd Gen)",
+    "description": "Apple's premium wireless earbuds with adaptive transparency, personalized spatial audio, and up to 6 hours of listening time with ANC.",
+    "price": 249.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 50,
+    "featured": false,
+    "tags": ["earbuds", "wireless", "apple", "noise-canceling"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-8",
+    "name": "MSI Creator Z16P Laptop",
+    "description": "Creator laptop with RTX 4070, Intel i7-13700H, 32GB RAM, and 16\" QHD+ display. Optimized for content creation and professional workflows.",
+    "price": 2199.99,
+    "category": "laptops",
+    "images": [
+      "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 12,
+    "featured": false,
+    "tags": ["laptop", "creator", "rtx-4070", "professional"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-9",
+    "name": "Custom PC Ryzen 7 7800X3D",
+    "description": "High-performance AMD gaming PC with Ryzen 7 7800X3D, RTX 4070 Ti, 32GB DDR5, and 2TB NVMe SSD. Excellent for gaming and streaming.",
+    "price": 2799.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591238371323-5b4c8dcd8f03?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 15,
+    "featured": false,
+    "tags": ["gaming-pc", "amd", "ryzen", "rtx-4070-ti"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-10",
+    "name": "Bose QuietComfort Ultra",
+    "description": "Premium noise-canceling headphones with immersive audio, all-day comfort, and up to 24 hours of battery life. Perfect for travel and work.",
+    "price": 429.99,
+    "category": "headphones",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 25,
+    "featured": false,
+    "tags": ["headphones", "bose", "noise-canceling", "travel"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-11",
+    "name": "Google Pixel 8 Pro",
+    "description": "Google's flagship phone with advanced AI features, Magic Eraser, 50MP camera system, and pure Android experience with 7 years of updates.",
+    "price": 999.99,
+    "category": "phones",
+    "images": [
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 35,
+    "featured": false,
+    "tags": ["smartphone", "google", "pixel", "ai-photography"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod-12",
+    "name": "Workstation PC Intel i9",
+    "description": "Professional workstation with Intel i9-13900K, RTX A4000, 64GB ECC RAM, and 4TB NVMe storage. Built for CAD, rendering, and data analysis.",
+    "price": 4999.99,
+    "category": "pcs",
+    "images": [
+      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+    ],
+    "stock": 5,
+    "featured": false,
+    "tags": ["workstation", "professional", "intel-i9", "rtx-a4000"],
+    "createdAt": "2023-12-01T00:00:00.000Z",
+    "updatedAt": "2023-12-01T00:00:00.000Z"
+  }
+]

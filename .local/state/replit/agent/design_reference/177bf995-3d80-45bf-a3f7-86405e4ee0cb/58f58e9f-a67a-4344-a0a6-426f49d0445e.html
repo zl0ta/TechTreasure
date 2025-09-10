@@ -1,0 +1,912 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopCraft - Modern E-commerce Platform</title>
+    <meta name="description" content="Discover quality products with our modern e-commerce platform. Shop electronics, fashion, home goods and more with secure checkout and fast delivery.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    popover: {
+                        DEFAULT: "var(--popover)",
+                        foreground: "var(--popover-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    destructive: {
+                        DEFAULT: "var(--destructive)",
+                        foreground: "var(--destructive-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                }
+            },
+            fontFamily: {
+                sans: ["var(--font-sans)"],
+            }
+        },
+    };
+    </script>
+    
+    <style>
+        :root {
+            --background: hsl(0 0% 100%);
+            --foreground: hsl(222.2 84% 4.9%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222.2 84% 4.9%);
+            --popover: hsl(0 0% 100%);
+            --popover-foreground: hsl(222.2 84% 4.9%);
+            --primary: hsl(214 100% 59%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(210 40% 96%);
+            --secondary-foreground: hsl(222.2 84% 4.9%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215.4 16.3% 46.9%);
+            --accent: hsl(43 96% 56%);
+            --accent-foreground: hsl(222.2 84% 4.9%);
+            --destructive: hsl(0 84.2% 60.2%);
+            --destructive-foreground: hsl(210 40% 98%);
+            --border: hsl(214.3 31.8% 91.4%);
+            --input: hsl(214.3 31.8% 91.4%);
+            --ring: hsl(214 100% 59%);
+            --radius: 0.5rem;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .gradient-hero {
+            background: linear-gradient(135deg, hsl(214 100% 59%) 0%, hsl(259 94% 51%) 100%);
+        }
+        
+        .product-card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .cart-slide {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .cart-slide.open {
+            transform: translateX(0);
+        }
+        
+        .overlay {
+            backdrop-filter: blur(4px);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .mobile-menu.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-background text-foreground font-sans">
+    <!-- @COMPONENT: Header [navigation, search, cart, user menu] -->
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div class="container mx-auto px-4">
+            <div class="flex h-16 items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <button class="md:hidden" data-event="click:toggleMobileMenu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <a href="/" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shopping-bag text-primary-foreground text-sm"></i>
+                        </div>
+                        <span class="font-bold text-xl">ShopCraft</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-foreground hover:text-primary transition-colors">Home</a>
+                    <div class="relative group">
+                        <button class="text-foreground hover:text-primary transition-colors flex items-center space-x-1">
+                            <span>Categories</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <!-- Categories Dropdown -->
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="/products?category=electronics" class="block px-4 py-2 text-card-foreground hover:bg-muted">Electronics</a>
+                            <a href="/products?category=fashion" class="block px-4 py-2 text-card-foreground hover:bg-muted">Fashion</a>
+                            <a href="/products?category=home" class="block px-4 py-2 text-card-foreground hover:bg-muted">Home & Garden</a>
+                            <a href="/products?category=sports" class="block px-4 py-2 text-card-foreground hover:bg-muted">Sports</a>
+                        </div>
+                    </div>
+                    <a href="/products" class="text-foreground hover:text-primary transition-colors">Products</a>
+                    <a href="/blog" class="text-foreground hover:text-primary transition-colors">Blog</a>
+                </nav>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"></i>
+                        <input 
+                            type="text" 
+                            placeholder="Search products..." 
+                            class="w-full pl-10 pr-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                            data-implementation="Connect to search API endpoint"
+                        />
+                    </div>
+                </div>
+                
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Cart -->
+                    <button class="relative" data-event="click:toggleCart">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center" data-bind="cart.itemCount">3</span>
+                    </button>
+                    
+                    <!-- User Menu -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
+                            <i class="fas fa-user text-lg"></i>
+                            <i class="fas fa-chevron-down text-xs hidden md:block"></i>
+                        </button>
+                        <!-- User Dropdown -->
+                        <div class="absolute top-full right-0 mt-2 w-48 bg-card border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="/profile" class="block px-4 py-2 text-card-foreground hover:bg-muted">Profile</a>
+                            <a href="/orders" class="block px-4 py-2 text-card-foreground hover:bg-muted">Orders</a>
+                            <hr class="border-border">
+                            <a href="/login" class="block px-4 py-2 text-card-foreground hover:bg-muted">Login</a>
+                            <a href="/register" class="block px-4 py-2 text-card-foreground hover:bg-muted">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden mobile-menu fixed top-16 left-0 w-full h-full bg-background z-40 border-t border-border">
+            <nav class="p-4 space-y-4">
+                <a href="/" class="block text-foreground hover:text-primary transition-colors">Home</a>
+                <a href="/products" class="block text-foreground hover:text-primary transition-colors">Products</a>
+                <div class="space-y-2">
+                    <p class="font-medium text-muted-foreground">Categories</p>
+                    <a href="/products?category=electronics" class="block pl-4 text-foreground hover:text-primary transition-colors">Electronics</a>
+                    <a href="/products?category=fashion" class="block pl-4 text-foreground hover:text-primary transition-colors">Fashion</a>
+                    <a href="/products?category=home" class="block pl-4 text-foreground hover:text-primary transition-colors">Home & Garden</a>
+                    <a href="/products?category=sports" class="block pl-4 text-foreground hover:text-primary transition-colors">Sports</a>
+                </div>
+                <a href="/blog" class="block text-foreground hover:text-primary transition-colors">Blog</a>
+                <!-- Mobile Search -->
+                <div class="relative">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"></i>
+                    <input 
+                        type="text" 
+                        placeholder="Search products..." 
+                        class="w-full pl-10 pr-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                    />
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: ShoppingCart [sliding cart overlay] -->
+    <div class="cart-slide fixed top-0 right-0 w-full md:w-96 h-full bg-card border-l border-border shadow-xl z-50 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-semibold">Shopping Cart</h2>
+                <button data-event="click:closeCart">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Cart Items -->
+            <!-- @MAP: cartItems.map(item => ( -->
+            <div class="space-y-4 mb-6">
+                <div class="flex items-center space-x-4 p-4 border border-border rounded-lg" data-mock="true">
+                    <!-- Modern wireless headphones product image -->
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Wireless Headphones" class="w-16 h-16 object-cover rounded-md" data-mock-image="true" />
+                    <div class="flex-1">
+                        <h3 class="font-medium" data-bind="item.name">Wireless Headphones</h3>
+                        <p class="text-sm text-muted-foreground" data-bind="item.price">$99.99</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <button class="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs" data-event="click:decreaseQuantity">-</button>
+                            <span class="text-sm" data-bind="item.quantity">1</span>
+                            <button class="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs" data-event="click:increaseQuantity">+</button>
+                        </div>
+                    </div>
+                    <button class="text-destructive" data-event="click:removeItem">
+                        <i class="fas fa-trash text-sm"></i>
+                    </button>
+                </div>
+                
+                <div class="flex items-center space-x-4 p-4 border border-border rounded-lg" data-mock="true">
+                    <!-- Stylish leather jacket product image -->
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Leather Jacket" class="w-16 h-16 object-cover rounded-md" data-mock-image="true" />
+                    <div class="flex-1">
+                        <h3 class="font-medium" data-bind="item.name">Leather Jacket</h3>
+                        <p class="text-sm text-muted-foreground" data-bind="item.price">$199.99</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <button class="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs">-</button>
+                            <span class="text-sm" data-bind="item.quantity">2</span>
+                            <button class="w-6 h-6 rounded-full border border-border flex items-center justify-center text-xs">+</button>
+                        </div>
+                    </div>
+                    <button class="text-destructive">
+                        <i class="fas fa-trash text-sm"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+            
+            <!-- Cart Summary -->
+            <div class="border-t border-border pt-4 space-y-2">
+                <div class="flex justify-between">
+                    <span>Subtotal</span>
+                    <span data-bind="cart.subtotal">$499.97</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Shipping</span>
+                    <span data-bind="cart.shipping">$9.99</span>
+                </div>
+                <div class="flex justify-between font-semibold text-lg border-t border-border pt-2">
+                    <span>Total</span>
+                    <span data-bind="cart.total">$509.96</span>
+                </div>
+            </div>
+            
+            <!-- Cart Actions -->
+            <div class="space-y-3 mt-6">
+                <button class="w-full bg-primary text-primary-foreground py-3 rounded-md font-medium hover:bg-primary/90 transition-colors" data-event="click:proceedToCheckout">
+                    Proceed to Checkout
+                </button>
+                <button class="w-full border border-border py-3 rounded-md font-medium hover:bg-muted transition-colors" data-event="click:viewCart">
+                    View Full Cart
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: ShoppingCart -->
+
+    <!-- Cart Overlay -->
+    <div class="overlay fixed inset-0 bg-black/20 z-40 opacity-0 invisible transition-all duration-200"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- @COMPONENT: HeroSection [featured content, main CTA] -->
+        <section class="gradient-hero text-primary-foreground">
+            <div class="container mx-auto px-4 py-20">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Discover Amazing Products
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-primary-foreground/90">
+                        Shop the latest trends with our curated collection of quality products
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-accent text-accent-foreground px-8 py-3 rounded-md font-medium hover:bg-accent/90 transition-colors" data-event="click:shopNow">
+                            Shop Now
+                        </button>
+                        <button class="border border-primary-foreground/30 text-primary-foreground px-8 py-3 rounded-md font-medium hover:bg-primary-foreground/10 transition-colors" data-event="click:learnMore">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: HeroSection -->
+
+        <!-- @COMPONENT: FeaturedCategories [category grid] -->
+        <section class="py-16 bg-secondary/30">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Shop by Category</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- @MAP: categories.map(category => ( -->
+                    <div class="bg-card rounded-lg p-6 text-center hover:shadow-lg transition-shadow cursor-pointer" data-mock="true">
+                        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-laptop text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2" data-bind="category.name">Electronics</h3>
+                        <p class="text-sm text-muted-foreground" data-bind="category.count">1,234 items</p>
+                    </div>
+                    
+                    <div class="bg-card rounded-lg p-6 text-center hover:shadow-lg transition-shadow cursor-pointer" data-mock="true">
+                        <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-tshirt text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2" data-bind="category.name">Fashion</h3>
+                        <p class="text-sm text-muted-foreground" data-bind="category.count">2,567 items</p>
+                    </div>
+                    
+                    <div class="bg-card rounded-lg p-6 text-center hover:shadow-lg transition-shadow cursor-pointer" data-mock="true">
+                        <div class="w-16 h-16 bg-green-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-home text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2" data-bind="category.name">Home & Garden</h3>
+                        <p class="text-sm text-muted-foreground" data-bind="category.count">892 items</p>
+                    </div>
+                    
+                    <div class="bg-card rounded-lg p-6 text-center hover:shadow-lg transition-shadow cursor-pointer" data-mock="true">
+                        <div class="w-16 h-16 bg-orange-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-running text-orange-500 text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2" data-bind="category.name">Sports</h3>
+                        <p class="text-sm text-muted-foreground" data-bind="category.count">1,456 items</p>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: FeaturedCategories -->
+
+        <!-- @COMPONENT: FeaturedProducts [diverse product card layouts] -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-12">
+                    <h2 class="text-3xl font-bold">Featured Products</h2>
+                    <a href="/products" class="text-primary hover:text-primary/80 font-medium">View All →</a>
+                </div>
+                
+                <!-- Product Grid with Mixed Layouts -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- @MAP: featuredProducts.map(product => ( -->
+                    
+                    <!-- Large Feature Card -->
+                    <div class="md:col-span-2 lg:row-span-2 bg-card border border-border rounded-lg overflow-hidden product-card-hover cursor-pointer" data-mock="true">
+                        <!-- High-end smartphone product image -->
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Premium Smartphone" class="w-full h-64 lg:h-80 object-cover" data-mock-image="true" />
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium text-accent bg-accent/10 px-2 py-1 rounded" data-bind="product.category">Electronics</span>
+                                <button class="text-muted-foreground hover:text-destructive" data-event="click:toggleWishlist">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2" data-bind="product.name">Premium Smartphone Pro</h3>
+                            <p class="text-muted-foreground mb-4" data-bind="product.description">Latest flagship smartphone with advanced AI camera system and all-day battery life.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold" data-bind="product.price">$899.99</span>
+                                <button class="bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors" data-event="click:addToCart">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Standard Product Cards -->
+                    <div class="bg-card border border-border rounded-lg overflow-hidden product-card-hover cursor-pointer" data-mock="true">
+                        <!-- Wireless earbuds product image -->
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Wireless Earbuds" class="w-full h-48 object-cover" data-mock-image="true" />
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded" data-bind="product.category">Audio</span>
+                                <button class="text-muted-foreground hover:text-destructive">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="font-semibold mb-2" data-bind="product.name">Wireless Earbuds Pro</h3>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold" data-bind="product.price">$149.99</span>
+                                <button class="bg-primary text-primary-foreground px-3 py-1 rounded text-sm font-medium hover:bg-primary/90 transition-colors">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-card border border-border rounded-lg overflow-hidden product-card-hover cursor-pointer" data-mock="true">
+                        <!-- Stylish designer watch product image -->
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Designer Watch" class="w-full h-48 object-cover" data-mock-image="true" />
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded" data-bind="product.category">Accessories</span>
+                                <button class="text-muted-foreground hover:text-destructive">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="font-semibold mb-2" data-bind="product.name">Designer Watch</h3>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold" data-bind="product.price">$299.99</span>
+                                <button class="bg-primary text-primary-foreground px-3 py-1 rounded text-sm font-medium hover:bg-primary/90 transition-colors">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compact List Style Card -->
+                    <div class="md:col-span-2 bg-card border border-border rounded-lg p-4 product-card-hover cursor-pointer" data-mock="true">
+                        <div class="flex items-center space-x-4">
+                            <!-- Gaming laptop product image -->
+                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&h=120" alt="Gaming Laptop" class="w-20 h-20 object-cover rounded-lg" data-mock-image="true" />
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-2 mb-1">
+                                    <span class="text-xs font-medium text-purple-600 bg-purple-100 px-2 py-1 rounded" data-bind="product.category">Gaming</span>
+                                    <button class="text-muted-foreground hover:text-destructive">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                                <h3 class="font-semibold mb-1" data-bind="product.name">Gaming Laptop RTX</h3>
+                                <p class="text-sm text-muted-foreground mb-2" data-bind="product.description">High-performance gaming laptop with RTX graphics</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xl font-bold" data-bind="product.price">$1,299.99</span>
+                                    <button class="bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- More Standard Cards -->
+                    <div class="bg-card border border-border rounded-lg overflow-hidden product-card-hover cursor-pointer" data-mock="true">
+                        <!-- Cozy winter jacket product image -->
+                        <img src="https://pixabay.com/get/gab7d7f43666487a1924f8fc51e29d28005786db8a60bf6f5c9db777560f22b800f598cd045172b21d98be613abff4659c5e673deb951645135d04bf4b55215e7_1280.jpg" alt="Winter Jacket" class="w-full h-48 object-cover" data-mock-image="true" />
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded" data-bind="product.category">Fashion</span>
+                                <button class="text-muted-foreground hover:text-destructive">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="font-semibold mb-2" data-bind="product.name">Winter Jacket</h3>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold" data-bind="product.price">$179.99</span>
+                                <button class="bg-primary text-primary-foreground px-3 py-1 rounded text-sm font-medium hover:bg-primary/90 transition-colors">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-card border border-border rounded-lg overflow-hidden product-card-hover cursor-pointer" data-mock="true">
+                        <!-- Modern fitness tracker product image -->
+                        <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Fitness Tracker" class="w-full h-48 object-cover" data-mock-image="true" />
+                        <div class="p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-medium text-red-600 bg-red-100 px-2 py-1 rounded" data-bind="product.category">Fitness</span>
+                                <button class="text-muted-foreground hover:text-destructive">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="font-semibold mb-2" data-bind="product.name">Fitness Tracker</h3>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold" data-bind="product.price">$89.99</span>
+                                <button class="bg-primary text-primary-foreground px-3 py-1 rounded text-sm font-medium hover:bg-primary/90 transition-colors">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: FeaturedProducts -->
+
+        <!-- @COMPONENT: BlogPreview [blog section with recent posts] -->
+        <section class="py-16 bg-muted/30">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-12">
+                    <h2 class="text-3xl font-bold">Latest from Our Blog</h2>
+                    <a href="/blog" class="text-primary hover:text-primary/80 font-medium">View All →</a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- @MAP: blogPosts.map(post => ( -->
+                    <article class="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer" data-mock="true">
+                        <!-- Technology trends blog post image -->
+                        <img src="https://pixabay.com/get/gf8994f9f8fbb8f75d7d80f9a9f678a0978d8732abc1b56f248fb71a0470c9f70fc2f87dcfb73c3766cdb3dcfe36af5a566b78f6a4902a89aba17798c11dc67b6_1280.jpg" alt="Technology Trends 2024" class="w-full h-48 object-cover" data-mock-image="true" />
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded" data-bind="post.category">Technology</span>
+                                <span class="text-xs text-muted-foreground" data-bind="post.date">Dec 15, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3" data-bind="post.title">Top Tech Trends to Watch in 2024</h3>
+                            <p class="text-muted-foreground mb-4" data-bind="post.excerpt">Discover the latest technology trends that will shape the future of commerce and digital experiences.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-muted-foreground" data-bind="post.readTime">5 min read</span>
+                                <a href="/blog/tech-trends-2024" class="text-primary hover:text-primary/80 font-medium">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer" data-mock="true">
+                        <!-- Sustainable shopping blog post image -->
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Sustainable Shopping Guide" class="w-full h-48 object-cover" data-mock-image="true" />
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded" data-bind="post.category">Lifestyle</span>
+                                <span class="text-xs text-muted-foreground" data-bind="post.date">Dec 12, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3" data-bind="post.title">Your Guide to Sustainable Shopping</h3>
+                            <p class="text-muted-foreground mb-4" data-bind="post.excerpt">Learn how to make more conscious purchasing decisions and support eco-friendly brands.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-muted-foreground" data-bind="post.readTime">7 min read</span>
+                                <a href="/blog/sustainable-shopping" class="text-primary hover:text-primary/80 font-medium">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer" data-mock="true">
+                        <!-- Product review blog post image -->
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Product Review" class="w-full h-48 object-cover" data-mock-image="true" />
+                        <div class="p-6">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="text-xs font-medium text-orange-600 bg-orange-100 px-2 py-1 rounded" data-bind="post.category">Reviews</span>
+                                <span class="text-xs text-muted-foreground" data-bind="post.date">Dec 10, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3" data-bind="post.title">Best Gadgets of 2023 Review</h3>
+                            <p class="text-muted-foreground mb-4" data-bind="post.excerpt">Our comprehensive review of the year's most innovative and useful gadgets and devices.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-muted-foreground" data-bind="post.readTime">10 min read</span>
+                                <a href="/blog/best-gadgets-2023" class="text-primary hover:text-primary/80 font-medium">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: BlogPreview -->
+
+        <!-- @COMPONENT: Newsletter [email signup section] -->
+        <section class="py-16 bg-primary text-primary-foreground">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+                <p class="text-xl mb-8 text-primary-foreground/90">Get the latest deals and product updates delivered to your inbox</p>
+                <div class="max-w-md mx-auto flex gap-4">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        class="flex-1 px-4 py-3 rounded-md bg-primary-foreground text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                        data-implementation="Connect to newsletter API"
+                    />
+                    <button class="bg-accent text-accent-foreground px-6 py-3 rounded-md font-medium hover:bg-accent/90 transition-colors" data-event="click:subscribeNewsletter">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: Newsletter -->
+    </main>
+
+    <!-- @COMPONENT: Footer [site links, contact info, legal] -->
+    <footer class="bg-card border-t border-border">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shopping-bag text-primary-foreground text-sm"></i>
+                        </div>
+                        <span class="font-bold text-xl">ShopCraft</span>
+                    </div>
+                    <p class="text-muted-foreground mb-4">Your trusted partner for quality products and exceptional shopping experiences.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-muted-foreground hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="/products" class="text-muted-foreground hover:text-primary transition-colors">Products</a></li>
+                        <li><a href="/blog" class="text-muted-foreground hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="/about" class="text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="/contact" class="text-muted-foreground hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h3 class="font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/help" class="text-muted-foreground hover:text-primary transition-colors">Help Center</a></li>
+                        <li><a href="/shipping" class="text-muted-foreground hover:text-primary transition-colors">Shipping Info</a></li>
+                        <li><a href="/returns" class="text-muted-foreground hover:text-primary transition-colors">Returns</a></li>
+                        <li><a href="/track" class="text-muted-foreground hover:text-primary transition-colors">Track Order</a></li>
+                        <li><a href="/support" class="text-muted-foreground hover:text-primary transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-muted-foreground"></i>
+                            <span class="text-muted-foreground">123 Commerce St, City, State 12345</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-muted-foreground"></i>
+                            <span class="text-muted-foreground">(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-muted-foreground"></i>
+                            <span class="text-muted-foreground">support@shopcraft.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-border pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-muted-foreground">© 2023 ShopCraft. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="/privacy" class="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="/terms" class="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="/cookies" class="text-muted-foreground hover:text-primary transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @COMPONENT: AuthModal [login/register forms] -->
+    <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-200" id="authModal">
+        <div class="bg-card rounded-lg w-full max-w-md transform scale-95 transition-transform duration-200">
+            <!-- Login Form -->
+            <div class="p-6" id="loginForm">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold">Sign In</h2>
+                    <button class="text-muted-foreground hover:text-foreground" data-event="click:closeAuthModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <form class="space-y-4" data-implementation="Handle form submission with authentication API">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input 
+                            type="email" 
+                            required
+                            class="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                            placeholder="Enter your email"
+                        />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Password</label>
+                        <input 
+                            type="password" 
+                            required
+                            class="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                            placeholder="Enter your password"
+                        />
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-primary-foreground py-2 rounded-md font-medium hover:bg-primary/90 transition-colors">
+                        Sign In
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-muted-foreground">
+                        Don't have an account? 
+                        <button class="text-primary hover:text-primary/80 font-medium" data-event="click:showRegisterForm">
+                            Create one
+                        </button>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Register Form -->
+            <div class="p-6 hidden" id="registerForm">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold">Create Account</h2>
+                    <button class="text-muted-foreground hover:text-foreground" data-event="click:closeAuthModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <form class="space-y-4" data-implementation="Handle registration with password hashing">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">First Name</label>
+                            <input 
+                                type="text" 
+                                required
+                                class="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                                placeholder="First name"
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Last Name</label>
+                            <input 
+                                type="text" 
+                                required
+                                class="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                                placeholder="Last name"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input 
+                            type="email" 
+                            required
+                            class="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                            placeholder="Enter your email"
+                        />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Password</label>
+                        <input 
+                            type="password" 
+                            required
+                            class="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                            placeholder="Create a password"
+                        />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Confirm Password</label>
+                        <input 
+                            type="password" 
+                            required
+                            class="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                            placeholder="Confirm your password"
+                        />
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-primary-foreground py-2 rounded-md font-medium hover:bg-primary/90 transition-colors">
+                        Create Account
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-muted-foreground">
+                        Already have an account? 
+                        <button class="text-primary hover:text-primary/80 font-medium" data-event="click:showLoginForm">
+                            Sign in
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: AuthModal -->
+
+    <script>
+        // TODO: Implement React components and state management
+        // TODO: Connect to backend API endpoints
+        // TODO: Implement cart functionality with session persistence
+        // TODO: Add form validation and error handling
+        // TODO: Implement search and filtering functionality
+        // TODO: Add lazy loading for product images
+        // TODO: Implement responsive behavior and animations
+        
+        (function() {
+            // Basic interaction handlers for demonstration
+            // In production, these would be React event handlers
+            
+            // Mobile menu toggle
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-event="click:toggleMobileMenu"]')) {
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    mobileMenu.classList.toggle('open');
+                }
+            });
+            
+            // Cart toggle
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-event="click:toggleCart"]')) {
+                    const cartSlide = document.querySelector('.cart-slide');
+                    const overlay = document.querySelector('.overlay');
+                    cartSlide.classList.add('open');
+                    overlay.classList.remove('opacity-0', 'invisible');
+                }
+                
+                if (e.target.closest('[data-event="click:closeCart"]') || e.target.classList.contains('overlay')) {
+                    const cartSlide = document.querySelector('.cart-slide');
+                    const overlay = document.querySelector('.overlay');
+                    cartSlide.classList.remove('open');
+                    overlay.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            // Auth modal handlers
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('a[href="/login"]')) {
+                    e.preventDefault();
+                    document.getElementById('authModal').classList.remove('opacity-0', 'invisible');
+                    document.querySelector('#authModal .bg-card').classList.remove('scale-95');
+                }
+                
+                if (e.target.closest('[data-event="click:closeAuthModal"]')) {
+                    document.getElementById('authModal').classList.add('opacity-0', 'invisible');
+                    document.querySelector('#authModal .bg-card').classList.add('scale-95');
+                }
+                
+                if (e.target.closest('[data-event="click:showRegisterForm"]')) {
+                    document.getElementById('loginForm').classList.add('hidden');
+                    document.getElementById('registerForm').classList.remove('hidden');
+                }
+                
+                if (e.target.closest('[data-event="click:showLoginForm"]')) {
+                    document.getElementById('registerForm').classList.add('hidden');
+                    document.getElementById('loginForm').classList.remove('hidden');
+                }
+            });
+            
+            // Form submission handlers
+            document.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // TODO: Implement actual form submission logic
+                console.log('Form submitted:', e.target);
+            });
+            
+            // Add to cart handlers
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-event="click:addToCart"]')) {
+                    // TODO: Implement add to cart functionality
+                    console.log('Add to cart clicked');
+                    
+                    // Show feedback
+                    const button = e.target.closest('button');
+                    const originalText = button.textContent;
+                    button.textContent = 'Added!';
+                    button.classList.add('bg-green-500');
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('bg-green-500');
+                    }, 1000);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
